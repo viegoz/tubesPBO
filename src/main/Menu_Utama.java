@@ -38,6 +38,7 @@ public class Menu_Utama extends javax.swing.JFrame {
         pn_sidebar = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         pn_menu = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         pn_content = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -65,6 +66,10 @@ public class Menu_Utama extends javax.swing.JFrame {
 
         pn_menu.setBackground(new java.awt.Color(255, 255, 255));
         pn_menu.setLayout(new javax.swing.BoxLayout(pn_menu, javax.swing.BoxLayout.Y_AXIS));
+
+        jLabel1.setText("AKWOKAWOAKWOAKWOAWK");
+        pn_menu.add(jLabel1);
+
         jScrollPane1.setViewportView(pn_menu);
 
         javax.swing.GroupLayout pn_sidebarLayout = new javax.swing.GroupLayout(pn_sidebar);
@@ -135,6 +140,7 @@ public class Menu_Utama extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel pn_content;
     private javax.swing.JPanel pn_menu;

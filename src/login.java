@@ -22,8 +22,8 @@ public class login extends javax.swing.JFrame {
     }
     
     void bersih() {
-        t_username.setText("USERNAME");
-        t_password.setText("PASSWORD");
+        t_username.setText("NAMA");
+        t_password.setText("KATA SANDI");
     }
 
     /**
