@@ -1,4 +1,10 @@
+package kontol;
 
+
+import main.*;
+import com.mysql.cj.xdevapi.Statement;
+import java.sql.Connection;
+import java.sql.DriverManager;
 import main.Menu_Utama;
 
 /*
@@ -24,6 +30,7 @@ public class login extends javax.swing.JFrame {
     void bersih() {
         t_username.setText("USERNAME");
         t_password.setText("PASSWORD");
+        t_username.getText();
     }
 
     /**
@@ -122,7 +129,7 @@ public class login extends javax.swing.JFrame {
         jPanel1.add(t_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 390, 250, 70));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
-        jLabel4.setText("TOKO BEBEK MULYA");
+        jLabel4.setText("BURGER BAONG!");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 630));
@@ -154,9 +161,43 @@ public class login extends javax.swing.JFrame {
     }//GEN-LAST:event_t_passwordActionPerformed
 
     private void bt_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_loginActionPerformed
-        Menu_Utama menu = new Menu_Utama();
-        menu.setVisible(true);
-        menu.revalidate();
+
+        try {
+            // membuka koneksi
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_login?useSSL=false", "root", "");
+            // dbPBO nama database
+            // root tu username
+            // "" passwordnya
+            
+            String username = t_username.getText();
+            String pass = t_password.getText();
+            
+            Statement stm = con.createStatement();
+            String sql = "select * from login where username+'"+username+"' and password='"+pass+"'";
+            ResultSet rs = stm.executeQuery(sql);
+
+            if(rs.next()){
+                // kondisi jika username n pass adlh true maka pindah ke billingclient
+
+                dispose();  //menutup frame AdminLogin
+                Menu_Utama mu = new Menu_Utama();
+                bc.show();
+
+            } else {
+                // kondisi jika username n pass adlh false maka muncul peringatan
+
+                JOptionPane.showMessageDialog(this, "Username atau Password Salah!", "Message", JOptionPane.ERROR_MESSAGE);
+
+            }
+
+            con.close();    //tutup koneksi
+
+        } catch (Exception e){
+            // nampilin penyebab error
+            System.out.println(e.getMessage());
+        }
+    }
         
         dispose();
     }//GEN-LAST:event_bt_loginActionPerformed
