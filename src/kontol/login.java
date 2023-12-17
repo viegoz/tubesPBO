@@ -28,9 +28,14 @@ public class login extends javax.swing.JFrame {
     }
     
     void bersih() {
+<<<<<<< HEAD:src/kontol/login.java
         t_username.setText("USERNAME");
         t_password.setText("PASSWORD");
         t_username.getText();
+=======
+        t_username.setText("NAMA");
+        t_password.setText("KATA SANDI");
+>>>>>>> a7282b48a3a34289c1331feceaabde7a6e2f08d0:src/login.java
     }
 
     /**
