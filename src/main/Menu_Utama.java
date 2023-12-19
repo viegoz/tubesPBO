@@ -40,7 +40,6 @@ public class Menu_Utama extends javax.swing.JFrame {
         pn_sidebar = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         pn_menu = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         pn_content = new javax.swing.JPanel();
         pn_utama = new javax.swing.JPanel();
 
@@ -51,8 +50,8 @@ public class Menu_Utama extends javax.swing.JFrame {
             }
         });
 
-        pn_navbar.setBackground(new java.awt.Color(240, 103, 9));
-        pn_navbar.setPreferredSize(new java.awt.Dimension(908, 70));
+        pn_navbar.setBackground(new java.awt.Color(241, 146, 11));
+        pn_navbar.setPreferredSize(new java.awt.Dimension(908, 120));
 
         javax.swing.GroupLayout pn_navbarLayout = new javax.swing.GroupLayout(pn_navbar);
         pn_navbar.setLayout(pn_navbarLayout);
@@ -62,7 +61,7 @@ public class Menu_Utama extends javax.swing.JFrame {
         );
         pn_navbarLayout.setVerticalGroup(
             pn_navbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 70, Short.MAX_VALUE)
+            .addGap(0, 120, Short.MAX_VALUE)
         );
 
         getContentPane().add(pn_navbar, java.awt.BorderLayout.PAGE_START);
@@ -72,12 +71,8 @@ public class Menu_Utama extends javax.swing.JFrame {
         jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setBorder(null);
 
-        pn_menu.setBackground(new java.awt.Color(255, 255, 255));
+        pn_menu.setBackground(new java.awt.Color(161, 107, 28));
         pn_menu.setLayout(new javax.swing.BoxLayout(pn_menu, javax.swing.BoxLayout.Y_AXIS));
-
-        jLabel1.setText("AKWOKAWOAKWOAKWOAWK");
-        pn_menu.add(jLabel1);
-
         jScrollPane1.setViewportView(pn_menu);
 
         javax.swing.GroupLayout pn_sidebarLayout = new javax.swing.GroupLayout(pn_sidebar);
@@ -88,7 +83,7 @@ public class Menu_Utama extends javax.swing.JFrame {
         );
         pn_sidebarLayout.setVerticalGroup(
             pn_sidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 529, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 479, Short.MAX_VALUE)
         );
 
         getContentPane().add(pn_sidebar, java.awt.BorderLayout.LINE_START);
@@ -158,7 +153,6 @@ public class Menu_Utama extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel pn_content;
     private javax.swing.JPanel pn_menu;
@@ -168,26 +162,28 @@ public class Menu_Utama extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void execute() {
-        ImageIcon iconMaster    = new ImageIcon(getClass().getResource("/img/icon_file.jpg"));
+        ImageIcon iconDashboard = new ImageIcon(getClass().getResource("/img/Home.jpg"));
+        ImageIcon iconMakanan    = new ImageIcon(getClass().getResource("/img/hamburger.jpg"));
         ImageIcon iconBarang    = new ImageIcon(getClass().getResource("/img/this_File.jpg"));
+        ImageIcon iconMinuman    = new ImageIcon(getClass().getResource("/img/icon_file.jpg"));
         
-        MenuItem thisFile1     = new MenuItem(null, true, iconBarang, "Barang1", new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                pn_utama.removeAll();
-                pn_utama.add(new form_barang());
-                pn_utama.repaint();
-                pn_utama.revalidate();
-            }
-        });
-        MenuItem thisFile2     = new MenuItem(null, true, iconBarang, "Barang2", null);
-        MenuItem thisFile3     = new MenuItem(null, true, iconBarang, "Barang3", null);
+//        MenuItem thisFile1     = new MenuItem(null, true, iconBarang, "Barang1", new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                pn_utama.removeAll();
+//                pn_utama.add(new form_barang());
+//                pn_utama.repaint();
+//                pn_utama.revalidate();
+//            }
+//        });
+//        MenuItem thisFile2     = new MenuItem(null, true, iconBarang, "Barang2", null);
+//        MenuItem thisFile3     = new MenuItem(null, true, iconBarang, "Barang3", null);
+//        
+//        MenuItem transaksi1     = new MenuItem(null, true, iconBarang, "Transaksi1", null);
+//        MenuItem transaksi2     = new MenuItem(null, true, iconBarang, "Transaksi2", null);
+//        MenuItem transaksi3     = new MenuItem(null, true, iconBarang, "Transaksi3", null);
         
-        MenuItem transaksi1     = new MenuItem(null, true, iconBarang, "Transaksi1", null);
-        MenuItem transaksi2     = new MenuItem(null, true, iconBarang, "Transaksi2", null);
-        MenuItem transaksi3     = new MenuItem(null, true, iconBarang, "Transaksi3", null);
-        
-        MenuItem menuHome     = new MenuItem(iconMaster, false, null, "Home", new ActionListener() {
+        MenuItem menuHome     = new MenuItem(iconDashboard, false, null, "Dashboard", new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 pn_utama.removeAll();
@@ -196,11 +192,12 @@ public class Menu_Utama extends javax.swing.JFrame {
                 pn_utama.revalidate();
             }
         });
-        MenuItem menuMaster     = new MenuItem(iconMaster, false, null, "Master", null, thisFile1, thisFile2, thisFile3);
-        MenuItem menuTransaksi     = new MenuItem(iconMaster, false, null, "Transaksi", null, transaksi1, transaksi2, transaksi3);
-        MenuItem menuReport     = new MenuItem(iconMaster, false, null, "Report", null);
+        MenuItem menuMakanan     = new MenuItem(iconMakanan, false, null, "Makanan", null);
+        MenuItem menuMinuman     = new MenuItem(iconMinuman, false, null, "Minuman", null);
+        MenuItem menuTransaksi     = new MenuItem(iconBarang, false, null, "Transaksi", null);
+        MenuItem menuReport     = new MenuItem(iconBarang, false, null, "Report", null);
         
-        addMenu(menuHome, menuMaster, menuTransaksi, menuReport);
+        addMenu(menuHome, menuMakanan, menuMinuman, menuTransaksi, menuReport);
     }
     
     private void addMenu(MenuItem... menu) {
